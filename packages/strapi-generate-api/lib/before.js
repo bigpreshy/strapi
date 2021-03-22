@@ -101,6 +101,11 @@ module.exports = (scope, cb) => {
       return cb.invalid('Duplicate attributes not allowed!');
     }
 
+    // Make sure that there is at least one attribute
+    if (_(scope.attributes.name === null || scope.attributes.name === '')) {
+      return cb.invalid('Omo e no work');
+    }
+
     // Render some stringified code from the action template
     // and make it available in our scope for use later on.
     scope.attributes = scope.attributes.reduce((acc, attribute) => {
