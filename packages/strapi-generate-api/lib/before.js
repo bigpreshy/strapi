@@ -102,8 +102,8 @@ module.exports = (scope, cb) => {
     }
 
     // Make sure that there is at least one attribute
-    if (_(scope.attributes.name === null || scope.attributes.name === '')) {
-      return cb.invalid('Omo e no work');
+    if (_.isEmpty(scope.attributes)) {
+      return cb.invalid('Usage: `$ strapi generate:api apiName attribute:type ....`');
     }
 
     // Render some stringified code from the action template
