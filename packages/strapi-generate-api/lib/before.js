@@ -101,11 +101,6 @@ module.exports = (scope, cb) => {
       return cb.invalid('Duplicate attributes not allowed!');
     }
 
-    // Make sure that there is at least one attribute
-    if (_.isEmpty(scope.attributes)) {
-      return cb.invalid('Usage: `$ strapi generate:api apiName attribute:type ....`');
-    }
-
     // Render some stringified code from the action template
     // and make it available in our scope for use later on.
     scope.attributes = scope.attributes.reduce((acc, attribute) => {
